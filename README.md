@@ -1,4 +1,4 @@
-# firevuase
+# Firebase + Vue test
 
 ## Project setup
 ```
