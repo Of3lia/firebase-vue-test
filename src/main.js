@@ -5,7 +5,8 @@ console.log(firebaseConfig)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  store,
+  render: h => h(App)
 }).$mount('#app')
 
 // Import the functions you need from the SDKs you need
@@ -13,6 +14,7 @@ new Vue({
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, set } from "firebase/database"
+import store from './store'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,14 +26,3 @@ import { getDatabase, ref, set } from "firebase/database"
 const fbApp = initializeApp(firebaseConfig);
 getDatabase(fbApp)
 getAnalytics(fbApp)
-
-wroteUserData(123, 'babaaba', 'myemal@maill', 'https:myimageurl')
-
-function wroteUserData(userId, name, email, imagerUrl) {
-  const db = getDatabase();
-  set(ref(db, 'users/' + userId), {
-    username: name,
-    email: email,
-    profile_picture: imagerUrl
-  })
-}
